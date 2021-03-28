@@ -49,27 +49,20 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celulaFilme" id="cBJ-3X-ZF5" customClass="ListaFilmesCollectionViewCell" customModule="CineFlex">
-                                                <rect key="frame" x="0.0" y="0.0" width="148" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O6b-D4-6ca">
-                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srg-iA-oaX">
-                                                            <rect key="frame" x="20" y="0.0" width="41.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IE-vG-cvD">
+                                                            <rect key="frame" x="-83" y="-8" width="240" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Srg-iA-oaX" firstAttribute="top" secondItem="O6b-D4-6ca" secondAttribute="top" id="Ab3-mA-zN3"/>
-                                                        <constraint firstItem="Srg-iA-oaX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O6b-D4-6ca" secondAttribute="leading" constant="20" symbolic="YES" id="dSU-rd-R6p"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Srg-iA-oaX" secondAttribute="trailing" constant="86.5" id="tAv-zw-bGF"/>
-                                                    </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
-                                                    <outlet property="labelNome" destination="Srg-iA-oaX" id="DLq-0U-iuT"/>
+                                                    <outlet property="imageCapa" destination="6IE-vG-cvD" id="SWR-Y4-Jj0"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
