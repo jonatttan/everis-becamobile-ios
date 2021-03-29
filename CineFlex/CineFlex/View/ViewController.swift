@@ -25,7 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.requestApiAlamofire()
+        //self.requestApiAlamofire()
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
         //teste chamada detalhes
@@ -39,25 +39,38 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //MARK: - Funções
     
     func teste(){
-        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
-            print("Segue detalhes do filme: ------ \(detalhesFilme)")
-        }
-        
-        for filme in filmes {
-            print(filme)
-        }
-    }
-    
-    func requestApiAlamofire(){
-        Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
-            if let filme = RequestFilmesAPI().trataResponse(response){
-                self.filmes = filme
-                let contador = self.filmes.count
-                self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
-                self.colecaoFilmes.reloadData()
+        RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana(urlApi) { (listaFilmess) in
+            self.filmes = listaFilmess
+            let contador = self.filmes.count
+            self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
+            self.colecaoFilmes.reloadData()
+            
+            for filme in self.filmes {
+                print(filme)
+                RequestDetalhesFilmeAPI().obtemDetalhes(filme.codigo) { (detalhesFilme) in
+                    print("Segue detalhes do filme: ------ \(detalhesFilme)")
+                }
             }
         }
+        
+//        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
+//            print("Segue detalhes do filme: ------ \(detalhesFilme)")
+//        }
     }
+    
+    
+    
+    
+//    func requestApiAlamofire(){
+//        Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
+//            if let filme = RequestFilmesAPI().trataResponse(response){
+//                self.filmes = filme
+//                let contador = self.filmes.count
+//                self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
+//                self.colecaoFilmes.reloadData()
+//            }
+//        }
+//    }
     
 //    func carregamento() {
 //        requestApiAlamofire { (filmesListados) in

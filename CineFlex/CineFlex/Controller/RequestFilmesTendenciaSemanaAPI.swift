@@ -1,18 +1,28 @@
 //
-//  RequestFilmesAPI.swift
+//  RequestFilmesTendenciaSemanaAPI.swift
 //  CineFlex
 //
-//  Created by Jonattan Moises Sousa on 28/03/21.
+//  Created by Jonattan Moises Sousa on 29/03/21.
 //
 
 import UIKit
 import Alamofire
 
-class RequestFilmesAPI: NSObject {
+class RequestFilmesTendenciaSemanaAPI: NSObject {
+    
+    func obtemTendenciasSemana(_ url: String, completion: @escaping([Filme]) -> Void){
+        var listaFilmes = [Filme]()
+        Alamofire.request(url, method: .get).responseJSON { (response) in
+            if let filme = self.trataResponse(response){
+                listaFilmes = filme
+                completion(listaFilmes)
+            }
+        }
+    }
     
     func trataResponse(_ response:DataResponse<Any>) -> [Filme]?{
-        var filmes = [Filme]()
         
+        var filmes = [Filme]()
         switch response.result {
             case .success:
                 if let resposta = response.result.value as? Dictionary<String, Any> {
@@ -29,12 +39,14 @@ class RequestFilmesAPI: NSObject {
                             }
                         }
                     }
-                    print("Certo, total de filmes: \(filmes.count)")
                 }
                 break
-           case .failure:
-               break
+            case .failure:
+            
+                break
         }
         return filmes
+        
     }
+
 }

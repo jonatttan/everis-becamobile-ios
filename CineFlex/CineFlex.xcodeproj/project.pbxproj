@@ -18,10 +18,10 @@
 		8902BC76260E5FDD00643AC1 /* CineFlexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BC75260E5FDD00643AC1 /* CineFlexTests.swift */; };
 		8902BC81260E5FDD00643AC1 /* CineFlexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BC80260E5FDD00643AC1 /* CineFlexUITests.swift */; };
 		8902BCB12610247E00643AC1 /* ListaFilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */; };
-		8902BCC82610E4C400643AC1 /* RequestFilmesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */; };
 		8902BCD32611638F00643AC1 /* StructsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCD22611638F00643AC1 /* StructsModel.swift */; };
 		8957C65C261205D400FF0F7E /* RequestFilmesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C65B261205D400FF0F7E /* RequestFilmesAPITests.swift */; };
 		8957C66426121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C66326121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift */; };
+		8957C67126125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C67026125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +60,10 @@
 		8902BC80260E5FDD00643AC1 /* CineFlexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineFlexUITests.swift; sourceTree = "<group>"; };
 		8902BC82260E5FDD00643AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaFilmesCollectionViewCell.swift; sourceTree = "<group>"; };
-		8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesAPI.swift; sourceTree = "<group>"; };
 		8902BCD22611638F00643AC1 /* StructsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsModel.swift; sourceTree = "<group>"; };
 		8957C65B261205D400FF0F7E /* RequestFilmesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesAPITests.swift; sourceTree = "<group>"; };
 		8957C66326121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetalhesFilmeAPI.swift; sourceTree = "<group>"; };
+		8957C67026125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesTendenciaSemanaAPI.swift; sourceTree = "<group>"; };
 		EBBE9BDBDEFD6D87EB9AD6BE /* Pods-CineFlex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CineFlex.release.xcconfig"; path = "Target Support Files/Pods-CineFlex/Pods-CineFlex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,7 +171,6 @@
 		8902BC94260E605A00643AC1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */,
 				8902BCD22611638F00643AC1 /* StructsModel.swift */,
 			);
 			path = Model;
@@ -190,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8957C66326121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift */,
+				8957C67026125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 				8902BC5C260E5FDA00643AC1 /* AppDelegate.swift in Sources */,
 				8957C66426121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift in Sources */,
 				8902BCD32611638F00643AC1 /* StructsModel.swift in Sources */,
-				8902BCC82610E4C400643AC1 /* RequestFilmesAPI.swift in Sources */,
+				8957C67126125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift in Sources */,
 				8902BCB12610247E00643AC1 /* ListaFilmesCollectionViewCell.swift in Sources */,
 				8902BC5E260E5FDA00643AC1 /* SceneDelegate.swift in Sources */,
 				8902BC66260E5FDA00643AC1 /* CineFlex.xcdatamodeld in Sources */,
