@@ -28,11 +28,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.requestApiAlamofire()
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
+        //teste chamada detalhes
+        //print(RequestDetalhesFilmeAPI().obtemDetalhes(codigoFilme: "527774"))
+        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
+            print("Segue detalhes do filme: ------ \(detalhesFilme)")
+        }
     }
 
     
     //MARK: - Funções
-
+    
     func requestApiAlamofire(){
         Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
             if let filme = RequestFilmesAPI().trataResponse(response){
@@ -42,8 +47,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.colecaoFilmes.reloadData()
             }
         }
-        
     }
+    
+//    func carregamento() {
+//        requestApiAlamofire { (filmesListados) in
+//            self.filmes = filmesListados
+//            let contador = self.filmes.count
+//            self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
+//            self.colecaoFilmes.reloadData()
+//        }
+//    }
+//
+//    func requestApiAlamofire(completion: @escaping([Filme]) ->Void){
+//        var filmesListados = [Filme]()
+//        Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
+//            if let filme = RequestFilmesAPI().trataResponse(response){
+//                filmesListados = filme
+//            }
+//        }
+//        completion(filmesListados)
+//    }
+
 }
         
 

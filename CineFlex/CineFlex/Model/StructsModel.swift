@@ -13,5 +13,10 @@ struct Filme: Codable {
     let capa: String
 }
 
+struct Detalhes: Codable {
+    let titulo, capa, sinopse: String
+    let avaliacao: Double
+}
+
 class StructsModel: NSObject {
 }
