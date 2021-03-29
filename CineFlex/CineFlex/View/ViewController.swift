@@ -10,7 +10,7 @@ import Alamofire
 
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource {
     
     
     //MARK: - Variáveis
@@ -22,6 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //MARK: - IBOutlets
     @IBOutlet weak var labelContaFilmes: UILabel!
     @IBOutlet weak var colecaoFilmes: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,57 +47,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.colecaoFilmes.reloadData()
             
             for filme in self.filmes {
-                print(filme)
+                
                 RequestDetalhesFilmeAPI().obtemDetalhes(filme.codigo) { (detalhesFilme) in
-                    print("Segue detalhes do filme: ------ \(detalhesFilme)")
                 }
             }
         }
-        
-//        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
-//            print("Segue detalhes do filme: ------ \(detalhesFilme)")
-//        }
     }
     
-    
-    
-    
-//    func requestApiAlamofire(){
-//        Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
-//            if let filme = RequestFilmesAPI().trataResponse(response){
-//                self.filmes = filme
-//                let contador = self.filmes.count
-//                self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
-//                self.colecaoFilmes.reloadData()
-//            }
-//        }
-//    }
-    
-//    func carregamento() {
-//        requestApiAlamofire { (filmesListados) in
-//            self.filmes = filmesListados
-//            let contador = self.filmes.count
-//            self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
-//            self.colecaoFilmes.reloadData()
-//        }
-//    }
-//
-//    func requestApiAlamofire(completion: @escaping([Filme]) ->Void){
-//        var filmesListados = [Filme]()
-//        Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in
-//            if let filme = RequestFilmesAPI().trataResponse(response){
-//                filmesListados = filme
-//            }
-//        }
-//        completion(filmesListados)
-//    }
-
 }
         
 
 //MARK: - Extensions
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     //MARK: - CollectionView
     
@@ -120,6 +83,17 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthCell, height: widthCell+80)
         }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let filmeEscolhido = filmes[indexPath.item]
+        
+        _ = UIStoryboard(name: "Main", bundle: nil)
+        let controlador = storyboard?.instantiateViewController(withIdentifier: "filmeDetalhes") as! DetalhesFilmeViewController
+        controlador.filmeSelecionado = filmeEscolhido
+        print(filmeEscolhido)
+        self.navigationController?.pushViewController(controlador, animated: true)
+        
+    }
+
 }
 
 // Tendencias https://api.themoviedb.org/3/trending/all/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR

@@ -22,6 +22,7 @@
 		8957C65C261205D400FF0F7E /* RequestFilmesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C65B261205D400FF0F7E /* RequestFilmesAPITests.swift */; };
 		8957C66426121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C66326121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift */; };
 		8957C67126125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C67026125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift */; };
+		8957C679261260B800FF0F7E /* DetalhesFilmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C678261260B800FF0F7E /* DetalhesFilmeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		8957C65B261205D400FF0F7E /* RequestFilmesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesAPITests.swift; sourceTree = "<group>"; };
 		8957C66326121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetalhesFilmeAPI.swift; sourceTree = "<group>"; };
 		8957C67026125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesTendenciaSemanaAPI.swift; sourceTree = "<group>"; };
+		8957C678261260B800FF0F7E /* DetalhesFilmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewController.swift; sourceTree = "<group>"; };
 		EBBE9BDBDEFD6D87EB9AD6BE /* Pods-CineFlex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CineFlex.release.xcconfig"; path = "Target Support Files/Pods-CineFlex/Pods-CineFlex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			children = (
 				8902BC5F260E5FDA00643AC1 /* ViewController.swift */,
 				8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */,
+				8957C678261260B800FF0F7E /* DetalhesFilmeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				8902BC5C260E5FDA00643AC1 /* AppDelegate.swift in Sources */,
 				8957C66426121A2100FF0F7E /* RequestDetalhesFilmeAPI.swift in Sources */,
 				8902BCD32611638F00643AC1 /* StructsModel.swift in Sources */,
+				8957C679261260B800FF0F7E /* DetalhesFilmeViewController.swift in Sources */,
 				8957C67126125DB500FF0F7E /* RequestFilmesTendenciaSemanaAPI.swift in Sources */,
 				8902BCB12610247E00643AC1 /* ListaFilmesCollectionViewCell.swift in Sources */,
 				8902BC5E260E5FDA00643AC1 /* SceneDelegate.swift in Sources */,
