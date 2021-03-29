@@ -19,6 +19,7 @@
 		8902BC81260E5FDD00643AC1 /* CineFlexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BC80260E5FDD00643AC1 /* CineFlexUITests.swift */; };
 		8902BCB12610247E00643AC1 /* ListaFilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */; };
 		8902BCC82610E4C400643AC1 /* RequestFilmesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */; };
+		8902BCD32611638F00643AC1 /* StructsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902BCD22611638F00643AC1 /* StructsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		8902BC82260E5FDD00643AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaFilmesCollectionViewCell.swift; sourceTree = "<group>"; };
 		8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFilmesAPI.swift; sourceTree = "<group>"; };
+		8902BCD22611638F00643AC1 /* StructsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsModel.swift; sourceTree = "<group>"; };
 		EBBE9BDBDEFD6D87EB9AD6BE /* Pods-CineFlex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CineFlex.release.xcconfig"; path = "Target Support Files/Pods-CineFlex/Pods-CineFlex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,7 +136,6 @@
 				8902BC94260E605A00643AC1 /* Model */,
 				8902BC5B260E5FDA00643AC1 /* AppDelegate.swift */,
 				8902BC5D260E5FDA00643AC1 /* SceneDelegate.swift */,
-				8902BC5F260E5FDA00643AC1 /* ViewController.swift */,
 				8902BC61260E5FDA00643AC1 /* Main.storyboard */,
 				8902BC67260E5FDD00643AC1 /* Assets.xcassets */,
 				8902BC69260E5FDD00643AC1 /* LaunchScreen.storyboard */,
@@ -166,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				8902BCC72610E4C400643AC1 /* RequestFilmesAPI.swift */,
+				8902BCD22611638F00643AC1 /* StructsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 		8902BC95260E606000643AC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8902BC5F260E5FDA00643AC1 /* ViewController.swift */,
 				8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */,
 			);
 			path = View;
@@ -361,6 +364,7 @@
 			files = (
 				8902BC60260E5FDA00643AC1 /* ViewController.swift in Sources */,
 				8902BC5C260E5FDA00643AC1 /* AppDelegate.swift in Sources */,
+				8902BCD32611638F00643AC1 /* StructsModel.swift in Sources */,
 				8902BCC82610E4C400643AC1 /* RequestFilmesAPI.swift in Sources */,
 				8902BCB12610247E00643AC1 /* ListaFilmesCollectionViewCell.swift in Sources */,
 				8902BC5E260E5FDA00643AC1 /* SceneDelegate.swift in Sources */,
