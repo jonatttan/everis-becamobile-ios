@@ -29,14 +29,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
         //teste chamada detalhes
-        //print(RequestDetalhesFilmeAPI().obtemDetalhes(codigoFilme: "527774"))
-        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
-            print("Segue detalhes do filme: ------ \(detalhesFilme)")
-        }
+//        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
+//            print("Segue detalhes do filme: ------ \(detalhesFilme)")
+//        }
+        teste()
     }
 
     
     //MARK: - Funções
+    
+    func teste(){
+        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
+            print("Segue detalhes do filme: ------ \(detalhesFilme)")
+        }
+        
+        for filme in filmes {
+            print(filme)
+        }
+    }
     
     func requestApiAlamofire(){
         Alamofire.request(self.urlApi, method: .get).responseJSON { (response) in

@@ -29,10 +29,6 @@ class RequestDetalhesFilmeAPI: NSObject {
                     guard let capa = dadosFilme["poster_path"] as? String else { return }
                     guard let avaliacao = dadosFilme["vote_average"] as? Double else { return }
                     guard let sinopse = dadosFilme["overview"] as? String else { return }
-//                    print("Titulo: \(titulo)")
-//                    print("Capa: \(capa)")
-//                    print("Avaliação \(avaliacao)")
-//                    print("Sinopse: \(sinopse)")
                     detalhesFilme = Detalhes(titulo: titulo, capa: capa, sinopse: sinopse, avaliacao: avaliacao)
                     completion(detalhesFilme)
                 }
@@ -43,8 +39,5 @@ class RequestDetalhesFilmeAPI: NSObject {
             
             }
         }
-        
-        //return detalhesFilme
-        //completion(detalhesFilme)
     }
 }

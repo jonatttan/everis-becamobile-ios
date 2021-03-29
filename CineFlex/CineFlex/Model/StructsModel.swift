@@ -11,6 +11,7 @@ import UIKit
 struct Filme: Codable {
     let title: String
     let capa: String
+    let codigo: Int
 }
 
 struct Detalhes: Codable {

@@ -22,7 +22,10 @@ class RequestFilmesAPI: NSObject {
                             guard let obra = filme["title"] as? String else { return nil }
                             if filme["poster_path"] != nil {
                                 guard let poster = filme["poster_path"] as? String else { return nil }
-                                filmes.append(Filme(title: obra, capa: poster))
+                                if filme["id"] != nil {
+                                    guard let id = filme["id"] as? Int else { return nil }
+                                    filmes.append(Filme(title: obra, capa: poster, codigo: id))
+                                }
                             }
                         }
                     }
