@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     //MARK: - Variáveis
-    let urlApi = "https://api.themoviedb.org/3/trending/all/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
+    let urlApi = "https://api.themoviedb.org/3/trending/movie/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
     var filmes = [Filme]()
     var contador = 0
     
