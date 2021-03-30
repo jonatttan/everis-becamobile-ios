@@ -9,7 +9,6 @@ import UIKit
 
 //MARK: - Codables
 struct Filme: Codable {
-    let title: String
     let capa: String
     let codigo: Int
 }

@@ -33,24 +33,26 @@ class DetalhesFilmeViewController: UIViewController {
         
         if let codigo = filmeSelecionado?.codigo {
             RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (filmeDetalhes) in
+                print("ola")
                 self.labelTitulo.text = filmeDetalhes.titulo
                 self.labelSinopse.text = "Sinopse: \(filmeDetalhes.sinopse)"
                 self.labelRating.text = "Avaliação: \(filmeDetalhes.avaliacao)"
                 
                 
-                let urlImage = "https://www.themoviedb.org/t/p/w440_and_h660_face\(filmeDetalhes.capa)"
-                Alamofire.request(urlImage).responseImage { response in
-                    if case .success(let image) = response.result {
-                        let imageFormated = image.af_imageRounded(withCornerRadius: 10)
-                        self.imageCapaFilme.image = imageFormated
-                    }
+                print("================================================================\(filmeDetalhes)")
+                
+                let urlImage = ("https://image.tmdb.org/t/p/w500\(filmeDetalhes.capa)")
+                RequestImage().setImage(urlImage) { (img) in
+                    self.imageCapaFilme.image = img
                 }
                 
+                
             }
+            print("Codigo================================================================\(codigo)")
         }
         else {
             print("Sem sucesso no carregamento dos dados do filme selecionado.")
         }
     }
-
+    
 }

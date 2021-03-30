@@ -29,28 +29,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         //self.requestApiAlamofire()
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
-        //teste chamada detalhes
-//        RequestDetalhesFilmeAPI().obtemDetalhes("791373") { (detalhesFilme) in
-//            print("Segue detalhes do filme: ------ \(detalhesFilme)")
-//        }
-        teste()
+        carregaPagina()
     }
 
     
     //MARK: - Funções
     
-    func teste(){
+    func carregaPagina(){
         RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana(urlApi) { (listaFilmess) in
             self.filmes = listaFilmess
             let contador = self.filmes.count
             self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
             self.colecaoFilmes.reloadData()
             
-            for filme in self.filmes {
-                
-                RequestDetalhesFilmeAPI().obtemDetalhes(filme.codigo) { (detalhesFilme) in
-                }
-            }
+//            for filme in self.filmes {
+//
+//                RequestDetalhesFilmeAPI().obtemDetalhes(filme.codigo) { (detalhesFilme) in
+//                }
+//            }
         }
     }
     
@@ -89,7 +85,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
         _ = UIStoryboard(name: "Main", bundle: nil)
         let controlador = storyboard?.instantiateViewController(withIdentifier: "filmeDetalhes") as! DetalhesFilmeViewController
         controlador.filmeSelecionado = filmeEscolhido
-        print(filmeEscolhido)
+        print(filmeEscolhido) //Remover
         self.navigationController?.pushViewController(controlador, animated: true)
         
     }
@@ -100,3 +96,5 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
 
 // Detalhes https://api.themoviedb.org/3/movie/464052?api_key=4925d4618168b98d05746090da7c9fae
 
+// GetImage: https://www.themoviedb.org/t/p/w440_and_h660_face
+// GetImage2: https://image.tmdb.org/t/p/w500
