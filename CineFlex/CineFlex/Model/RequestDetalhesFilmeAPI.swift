@@ -10,8 +10,20 @@ import Alamofire
 
 class RequestDetalhesFilmeAPI: NSObject {
     
-    let pagina = "https://api.themoviedb.org/3/movie/"
-    let apiKey = "?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
+    //MARK: - Variáveis
+    
+    lazy var url: String = {
+        guard let key = Configs().urlDetalhes() else { return "" }
+        return key
+    }()
+    
+    lazy var key: String = {
+        guard let key = Configs().apiKey() else { return "" }
+        return key
+    }()
+    
+//    let url = "https://api.themoviedb.org/3/movie/"
+//    let key = "?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
     
     
     //MARK: - Funções
@@ -21,16 +33,15 @@ class RequestDetalhesFilmeAPI: NSObject {
         return objDefault
     }
     
-    public func obtemDetalhes(_ codigoFilme: Int, completion: @escaping(Detalhes) -> Void) {
+    func obtemDetalhes(_ codigoFilme: Int, completion: @escaping(Detalhes) -> Void) {
         
-        let urlCompleta = pagina+String(codigoFilme)+apiKey
+        let urlCompleta = url+String(codigoFilme)+key
         var detalhesFilme = Detalhes(titulo: "", capa: "", sinopse: "", avaliacao: 0)
         
         Alamofire.request(urlCompleta, method: .get).responseJSON { (response) in
             switch response.result {
             
             case .success:
-                print("ola")
                 if let dadosFilme = response.result.value as? Dictionary<String, Any> {
                     guard let titulo = dadosFilme["title"] as? String else {
                         detalhesFilme = self.def(codigoFilme)
@@ -50,13 +61,11 @@ class RequestDetalhesFilmeAPI: NSObject {
                         return
                     }
                     detalhesFilme = Detalhes(titulo: titulo, capa: capa, sinopse: sinopse, avaliacao: avaliacao)
-                    print(response.result)
                     completion(detalhesFilme)
                 }
                 
                 break
             case .failure:
-                
                 print(" ***** Falha no retorno ***** ")
                 break
             }

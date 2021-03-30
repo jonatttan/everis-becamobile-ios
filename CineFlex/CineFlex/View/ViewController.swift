@@ -6,20 +6,19 @@
 //
 
 import UIKit
-import Alamofire
-
-
 
 class ViewController: UIViewController, UICollectionViewDataSource {
     
     
     //MARK: - Variáveis
-    let urlApi = "https://api.themoviedb.org/3/trending/all/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
+   
+//    let urlApi =  url // "https://api.themoviedb.org/3/trending/all/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
     var filmes = [Filme]()
     var contador = 0
     
     
     //MARK: - IBOutlets
+    
     @IBOutlet weak var labelContaFilmes: UILabel!
     @IBOutlet weak var colecaoFilmes: UICollectionView!
 
@@ -29,24 +28,18 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         //self.requestApiAlamofire()
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
-        carregaPagina()
+        loadPage()
     }
 
     
     //MARK: - Funções
     
-    func carregaPagina(){
-        RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana(urlApi) { (listaFilmess) in
+    func loadPage(){
+        RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana() { (listaFilmess) in
             self.filmes = listaFilmess
             let contador = self.filmes.count
             self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
             self.colecaoFilmes.reloadData()
-            
-//            for filme in self.filmes {
-//
-//                RequestDetalhesFilmeAPI().obtemDetalhes(filme.codigo) { (detalhesFilme) in
-//                }
-//            }
         }
     }
     
@@ -85,16 +78,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
         _ = UIStoryboard(name: "Main", bundle: nil)
         let controlador = storyboard?.instantiateViewController(withIdentifier: "filmeDetalhes") as! DetalhesFilmeViewController
         controlador.filmeSelecionado = filmeEscolhido
-        print(filmeEscolhido) //Remover
         self.navigationController?.pushViewController(controlador, animated: true)
         
     }
 
 }
 
-// Tendencias https://api.themoviedb.org/3/trending/all/week?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR
 
-// Detalhes https://api.themoviedb.org/3/movie/464052?api_key=4925d4618168b98d05746090da7c9fae
-
-// GetImage: https://www.themoviedb.org/t/p/w440_and_h660_face
-// GetImage2: https://image.tmdb.org/t/p/w500

@@ -11,6 +11,7 @@ import AlamofireImage
 
 class RequestImage: NSObject {
     
+    //MARK: - Funções
     
     func setImage(_ url:String, completion: @escaping(UIImage) -> Void) {
         

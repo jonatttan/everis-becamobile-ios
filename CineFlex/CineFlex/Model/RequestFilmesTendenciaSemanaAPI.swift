@@ -10,10 +10,23 @@ import Alamofire
 
 class RequestFilmesTendenciaSemanaAPI: NSObject {
     
+    //MARK: - Variáveis
+    
+    lazy var url:String = {
+        guard let url = Configs().urlTendencias() else { return ""}
+        return url
+    }()
+    
+    lazy var key: String = {
+        guard let key = Configs().apiKey() else { return "" }
+        return key
+    }()
+    
     
     //MARK: - Funções
     
-    func obtemTendenciasSemana(_ url: String, completion: @escaping([Filme]) -> Void){
+    func obtemTendenciasSemana(completion: @escaping([Filme]) -> Void){
+        let url = self.url+self.key
         var listaFilmes = [Filme]()
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let filme = self.trataResponse(response){

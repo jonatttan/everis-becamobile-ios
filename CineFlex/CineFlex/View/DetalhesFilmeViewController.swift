@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Alamofire
-import AlamofireImage // Temporario, migrar
 
 class DetalhesFilmeViewController: UIViewController {
 
@@ -23,6 +21,9 @@ class DetalhesFilmeViewController: UIViewController {
     
     var filmeSelecionado:Filme? = nil
     
+    
+    //MARK: - Funções
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.carregaTela()
@@ -33,22 +34,17 @@ class DetalhesFilmeViewController: UIViewController {
         
         if let codigo = filmeSelecionado?.codigo {
             RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (filmeDetalhes) in
-                print("ola")
+                
                 self.labelTitulo.text = filmeDetalhes.titulo
                 self.labelSinopse.text = "Sinopse: \(filmeDetalhes.sinopse)"
                 self.labelRating.text = "Avaliação: \(filmeDetalhes.avaliacao)"
-                
-                
-                print("================================================================\(filmeDetalhes)")
                 
                 let urlImage = ("https://image.tmdb.org/t/p/w500\(filmeDetalhes.capa)")
                 RequestImage().setImage(urlImage) { (img) in
                     self.imageCapaFilme.image = img
                 }
                 
-                
             }
-            print("Codigo================================================================\(codigo)")
         }
         else {
             print("Sem sucesso no carregamento dos dados do filme selecionado.")
