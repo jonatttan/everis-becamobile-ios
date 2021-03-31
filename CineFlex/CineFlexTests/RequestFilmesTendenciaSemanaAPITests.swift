@@ -46,21 +46,17 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
                 self.listaDeFilmesTendencia.append(Filme(capa: capaSelect, codigo: codSelect))
             }
         }
-        print("Quantidade de filmes cadastrados: \(self.listaDeFilmesTendencia.count) e Filmes sem capa: \(filmeSemCapa)")
+        
         XCTAssertEqual(0, filmeSemCapa)
     }
     
     func testeRetornoDeveConterQuantidadeDeFilmesDiferenteZero(){
         var semFilmes = true
-
-        print("Contagem de filmes cadastrados: \(listaDeFilmesTendencia.count)")
         
         if (self.listaDeFilmesTendencia.count > 0) {
             semFilmes = false
         }
         
-//        self.quantidadeDeFilmes = listaDeFilmesTendencia.count
-//        XCTAssertNotEqual(0, self.quantidadeDeFilmes)
         XCTAssertFalse(semFilmes)
     }
 }
