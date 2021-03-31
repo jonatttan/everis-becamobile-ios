@@ -9,25 +9,17 @@ import XCTest
 @testable import CineFlex
 
 class CineFlexTests: XCTestCase {
-
+    
+    var listaDeFilmesTendencia:[Filme] = []
+    var quantidadeDeFilmes = 0
+    var bdFilmes:[[Any]] = [[]]
+//    var bdDetalhes:[[Any]] = [[]] //Parte de testes detalhes
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+//        bdFilmes2 = [["A volta dos que não foram", 4.5], ["A trança da Mulher careca", 6.8], ["Fight 2 carecas, 1 pente", 7.4], ["A vida de uma formiga", 8.3], ["Sem fim", 8.2]] //Parte de testes detalhes
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

@@ -21,7 +21,6 @@ class DetalhesFilmeViewController: UIViewController {
     
     var filmeSelecionado:Filme? = nil
     
-    
     //MARK: - Funções
     
     override func viewDidLoad() {
@@ -39,8 +38,7 @@ class DetalhesFilmeViewController: UIViewController {
                 self.labelSinopse.text = "Sinopse: \(filmeDetalhes.sinopse)"
                 self.labelRating.text = "Avaliação: \(filmeDetalhes.avaliacao)"
                 
-                let urlImage = ("https://image.tmdb.org/t/p/w500\(filmeDetalhes.capa)")
-                RequestImage().setImage(urlImage) { (img) in
+                RequestImage().setImage(filmeDetalhes.capa) { (img) in
                     self.imageCapaFilme.image = img
                 }
                 

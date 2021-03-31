@@ -22,10 +22,6 @@ class RequestDetalhesFilmeAPI: NSObject {
         return key
     }()
     
-//    let url = "https://api.themoviedb.org/3/movie/"
-//    let key = "?api_key=4925d4618168b98d05746090da7c9fae&language=pt-BR"
-    
-    
     //MARK: - Funções
     
     func def(_ codigoFilme: Int) -> Detalhes{

@@ -29,6 +29,11 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
         let url = self.url+self.key
         var listaFilmes = [Filme]()
         Alamofire.request(url, method: .get).responseJSON { (response) in
+            guard let contaDados = response.data?.count else { return }
+            if (contaDados < 500) {
+                listaFilmes.append(Filme(capa: "erro", codigo: 0))
+                completion(listaFilmes)
+            }
             if let filme = self.trataResponse(response){
                 listaFilmes = filme
                 completion(listaFilmes)
