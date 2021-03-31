@@ -47,8 +47,10 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
         switch response.result {
             case .success:
                 if let resposta = response.result.value as? Dictionary<String, Any> {
+                    
                     guard let listaDeFilmes = resposta["results"] as? Array<Dictionary<String, Any>> else { return nil}
                     for filme in listaDeFilmes {
+                        
                         if filme["poster_path"] != nil {
                             guard let poster = filme["poster_path"] as? String else { return nil }
                             if filme["id"] != nil {
@@ -58,6 +60,7 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
                         }
                         
                     }
+                    
                 }
                 break
             case .failure:
