@@ -21,8 +21,6 @@ class ListaFilmesCollectionViewCell: UICollectionViewCell {
         RequestImage().setImage(filme.capa) { (img) in
             self.imageCapa.image = img
         }
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.red.cgColor
         self.layer.cornerRadius = 10
     }
 }
