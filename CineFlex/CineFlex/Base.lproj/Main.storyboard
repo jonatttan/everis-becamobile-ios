@@ -42,14 +42,33 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Filmes encontrados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtU-yy-wrZ">
-                                        <rect key="frame" x="0.0" y="39" width="355" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-wd-wro">
+                                        <rect key="frame" x="0.0" y="39" width="355" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOk-ej-4Hb">
+                                                <rect key="frame" x="0.0" y="0.0" width="118.5" height="30"/>
+                                                <state key="normal" title="&lt; Anterior"/>
+                                                <connections>
+                                                    <action selector="btnPreviousPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Lv-j6-PaW"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Página 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0G-qN-4GR">
+                                                <rect key="frame" x="118.5" y="0.0" width="118" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndv-Yn-IBo">
+                                                <rect key="frame" x="236.5" y="0.0" width="118.5" height="30"/>
+                                                <state key="normal" title="Próxima &gt;"/>
+                                                <connections>
+                                                    <action selector="btnNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Hb-Kk-vWe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1oT-iF-9kS">
-                                        <rect key="frame" x="0.0" y="66" width="355" height="557"/>
+                                        <rect key="frame" x="0.0" y="79" width="355" height="544"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JLq-6a-CnY">
                                             <size key="itemSize" width="128" height="128"/>
@@ -99,7 +118,7 @@
                     <navigationItem key="navigationItem" id="HoH-TD-aGe"/>
                     <connections>
                         <outlet property="colecaoFilmes" destination="1oT-iF-9kS" id="BUv-mm-umc"/>
-                        <outlet property="labelContaFilmes" destination="dtU-yy-wrZ" id="iTM-ew-Ebn"/>
+                        <outlet property="labelStatusPagina" destination="s0G-qN-4GR" id="uX4-fT-mMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

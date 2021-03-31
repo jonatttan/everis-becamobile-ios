@@ -22,11 +22,11 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
         return key
     }()
     
-    
     //MARK: - Funções
     
-    func obtemTendenciasSemana(completion: @escaping([Filme]) -> Void){
-        let url = self.url+self.key
+    func obtemTendenciasSemana(_ pag:Int, completion: @escaping([Filme]) -> Void){
+        let pagina = "&page=\(pag)"
+        let url = self.url+self.key+pagina
         var listaFilmes = [Filme]()
         Alamofire.request(url, method: .get).responseJSON { (response) in
             guard let contaDados = response.data?.count else { return }

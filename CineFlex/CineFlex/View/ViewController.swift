@@ -14,34 +14,48 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     var filmes = [Filme]()
     var contador = 0
+    var pag = 1
     
     
     //MARK: - IBOutlets
     
-    @IBOutlet weak var labelContaFilmes: UILabel!
     @IBOutlet weak var colecaoFilmes: UICollectionView!
-
+    @IBOutlet weak var labelStatusPagina: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.requestApiAlamofire()
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
-        loadPage()
+        loadPage(pag)
     }
 
     
     //MARK: - Funções
     
-    func loadPage(){
-        RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana() { (listaFilmess) in
+    func loadPage(_ pagina:Int){
+        RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana(pagina) { (listaFilmess) in
             self.filmes = listaFilmess
-            let contador = self.filmes.count
-            self.labelContaFilmes.text = (contador < 2 && contador >= 0) ? "\(contador) filme encontrado" : "\(contador) filmes encontrados"
             self.colecaoFilmes.reloadData()
         }
     }
     
+    // MARK: - IBOutlets
+    
+    @IBAction func btnPreviousPage(_ sender: Any) {
+        if self.pag > 1 {
+            self.pag = pag - 1
+            labelStatusPagina.text = "Página \(self.pag)"
+            loadPage(self.pag)
+        }
+    }
+    
+    @IBAction func btnNextPage(_ sender: UIButton) {
+        self.pag = pag + 1
+        labelStatusPagina.text = "Página \(self.pag)"
+        loadPage(self.pag)
+    }
 }
         
 
