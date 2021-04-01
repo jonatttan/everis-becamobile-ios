@@ -51,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             self.pag = pag - 1
             labelStatusPagina.text = "Página \(self.pag)"
             loadPage(self.pag)
-            self.backBegin()
+            self.collectionBackBegin()
         }
     }
     
@@ -59,10 +59,10 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         self.pag = pag + 1
         labelStatusPagina.text = "Página \(self.pag)"
         loadPage(self.pag)
-        self.backBegin()
+        self.collectionBackBegin()
     }
     
-    func backBegin(){
+    func collectionBackBegin(){
         let firstIndexPath = IndexPath(item: 0, section: 0)
         self.colecaoFilmes.scrollToItem(at: firstIndexPath, at: .top, animated: true)
     }
@@ -87,7 +87,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
        
         let firstIndexPath = IndexPath(item: 0, section: 0)
         self.colecaoFilmes.scrollToItem(at: firstIndexPath, at: .top, animated: true)
-//        self.colecaoFilmes.setContentOffset(CGPointZero, animated: true)
     }
     
     

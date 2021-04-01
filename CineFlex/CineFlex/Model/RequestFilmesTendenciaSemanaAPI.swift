@@ -67,7 +67,7 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
                 }
                 break
             case .failure:
-            
+                //
                 break
         }
         return filmes

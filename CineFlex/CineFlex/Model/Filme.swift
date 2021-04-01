@@ -12,6 +12,9 @@ class Filme: NSObject {
     @objc let titulo: String
     let capa: String
     
+    
+    //MARK: - Construtor
+    
     init(codigo: Int, titulo: String, capa: String) {
         self.codigo = codigo
         self.titulo = titulo
