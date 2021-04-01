@@ -31,7 +31,7 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
         Alamofire.request(url, method: .get).responseJSON { (response) in
             guard let contaDados = response.data?.count else { return }
             if (contaDados < 500) {
-                listaFilmes.append(Filme(capa: "erro", codigo: 0))
+                listaFilmes.append(Filme(codigo: 0, titulo: "falha", capa: "erro"))
                 completion(listaFilmes)
             }
             if let filme = self.trataResponse(response){
@@ -55,7 +55,10 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
                             guard let poster = filme["poster_path"] as? String else { return nil }
                             if filme["id"] != nil {
                                 guard let id = filme["id"] as? Int else { return nil }
-                                filmes.append(Filme(capa: poster, codigo: id))
+                                if filme["title"] != nil {
+                                    guard let titulo = filme["title"] as? String else { return nil}
+                                    filmes.append(Filme(codigo: id, titulo: titulo, capa: poster))
+                                }
                             }
                         }
                         

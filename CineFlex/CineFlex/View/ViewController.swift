@@ -11,7 +11,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     
     //MARK: - Variáveis
-    
+    var todosFilmes = [Filme]()
     var filmes = [Filme]()
     var contador = 0
     var pag = 1
@@ -21,11 +21,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var colecaoFilmes: UICollectionView!
     @IBOutlet weak var labelStatusPagina: UILabel!
+    @IBOutlet weak var searchFilmes: UISearchBar!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.requestApiAlamofire()
+        searchFilmes.delegate = self
         colecaoFilmes.dataSource = self
         colecaoFilmes.delegate = self
         loadPage(pag)
@@ -36,18 +38,20 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     func loadPage(_ pagina:Int){
         RequestFilmesTendenciaSemanaAPI().obtemTendenciasSemana(pagina) { (listaFilmess) in
-            self.filmes = listaFilmess
+            self.todosFilmes = listaFilmess
+            self.filmes = self.todosFilmes
             self.colecaoFilmes.reloadData()
         }
     }
     
-    // MARK: - IBOutlets
+    // MARK: - IBActions
     
     @IBAction func btnPreviousPage(_ sender: Any) {
         if self.pag > 1 {
             self.pag = pag - 1
             labelStatusPagina.text = "Página \(self.pag)"
             loadPage(self.pag)
+            self.backBegin()
         }
     }
     
@@ -55,13 +59,37 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         self.pag = pag + 1
         labelStatusPagina.text = "Página \(self.pag)"
         loadPage(self.pag)
+        self.backBegin()
+    }
+    
+    func backBegin(){
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        self.colecaoFilmes.scrollToItem(at: firstIndexPath, at: .top, animated: true)
     }
 }
         
 
 //MARK: - Extensions
 
-extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
+extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UISearchBarDelegate{
+    
+    
+    // MARK: - SearchBar
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filmes = self.todosFilmes
+        if searchText != "" {
+            let pesquisa = NSPredicate(format: "titulo contains[cd] %@", searchText)
+            let filmesFiltrados:[Filme] = (filmes as NSArray).filtered(using: pesquisa) as! Array
+            filmes = filmesFiltrados
+        }
+        self.colecaoFilmes.reloadData()
+       
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        self.colecaoFilmes.scrollToItem(at: firstIndexPath, at: .top, animated: true)
+//        self.colecaoFilmes.setContentOffset(CGPointZero, animated: true)
+    }
+    
     
     //MARK: - CollectionView
     

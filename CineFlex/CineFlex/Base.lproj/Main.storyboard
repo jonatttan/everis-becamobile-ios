@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-737" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--CineFlix-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CineFlex" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,14 +36,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iD2-BG-acu">
                                 <rect key="frame" x="10" y="44" width="355" height="623"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CineFlix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWi-KI-h4y">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zYR-vR-6La">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="95"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-wd-wro">
-                                        <rect key="frame" x="0.0" y="39" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="105" width="355" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOk-ej-4Hb">
                                                 <rect key="frame" x="0.0" y="0.0" width="118.5" height="30"/>
@@ -68,7 +66,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1oT-iF-9kS">
-                                        <rect key="frame" x="0.0" y="79" width="355" height="544"/>
+                                        <rect key="frame" x="0.0" y="145" width="355" height="478"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JLq-6a-CnY">
                                             <size key="itemSize" width="128" height="128"/>
@@ -115,10 +113,13 @@
                             <constraint firstItem="iD2-BG-acu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="lbb-wj-h8D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HoH-TD-aGe"/>
+                    <navigationItem key="navigationItem" title="CineFlix" id="HoH-TD-aGe">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="eCh-wm-wcN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="colecaoFilmes" destination="1oT-iF-9kS" id="BUv-mm-umc"/>
                         <outlet property="labelStatusPagina" destination="s0G-qN-4GR" id="uX4-fT-mMX"/>
+                        <outlet property="searchFilmes" destination="zYR-vR-6La" id="S6t-BX-jAF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
