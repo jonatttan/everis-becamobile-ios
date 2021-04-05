@@ -25,6 +25,83 @@
             </objects>
             <point key="canvasLocation" x="-737" y="116"/>
         </scene>
+        <!--Detalhe Filme View Model View Controller-->
+        <scene sceneID="TOa-Js-ian">
+            <objects>
+                <viewController storyboardIdentifier="filmeDetalheMVVM" id="68D-6g-Nq5" customClass="DetalheFilmeViewModelViewController" customModule="CineFlex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aym-DZ-BSb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Jrf-vR-kUI">
+                                <rect key="frame" x="10" y="0.0" width="355" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcd-sj-vx2">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="333.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldb-v0-I8C">
+                                                <rect key="frame" x="85" y="8" width="195" height="271"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4am-A5-0Tw">
+                                        <rect key="frame" x="0.0" y="333.5" width="355" height="333.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-ex-wAI">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="125"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="125" id="5tR-kC-DMo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sinopse:" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1e-H6-mNe">
+                                                <rect key="frame" x="0.0" y="125" width="355" height="148.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontuação:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPt-96-Wcj">
+                                                <rect key="frame" x="0.0" y="273.5" width="355" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="jwo-LR-Bv0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cPt-96-Wcj" secondAttribute="trailing" id="ZvX-HB-kTb"/>
+                                            <constraint firstItem="cPt-96-Wcj" firstAttribute="leading" secondItem="4am-A5-0Tw" secondAttribute="leading" id="emK-Fe-y1N"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xsX-Xg-4ld"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xsX-Xg-4ld" firstAttribute="trailing" secondItem="Jrf-vR-kUI" secondAttribute="trailing" constant="10" id="ElW-xl-LDo"/>
+                            <constraint firstItem="Jrf-vR-kUI" firstAttribute="bottom" secondItem="xsX-Xg-4ld" secondAttribute="bottom" id="cvz-aS-fbP"/>
+                            <constraint firstItem="Jrf-vR-kUI" firstAttribute="top" secondItem="xsX-Xg-4ld" secondAttribute="top" id="ir8-Hi-eoh"/>
+                            <constraint firstItem="Jrf-vR-kUI" firstAttribute="leading" secondItem="xsX-Xg-4ld" secondAttribute="leading" constant="10" id="lqF-Kq-U7a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imagePosterFilme" destination="ldb-v0-I8C" id="zwa-4h-xPb"/>
+                        <outlet property="labelPontuacao" destination="cPt-96-Wcj" id="RkV-Wb-83x"/>
+                        <outlet property="labelSinopse" destination="I1e-H6-mNe" id="GXJ-0M-nTO"/>
+                        <outlet property="labelTitulo" destination="heL-ex-wAI" id="Thj-pg-dzs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pn2-E5-0o6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="-570.76461769115451"/>
+        </scene>
         <!--CineFlix-->
         <scene sceneID="tne-QT-ifu">
             <objects>

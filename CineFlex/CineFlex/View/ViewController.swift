@@ -116,7 +116,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
         let filmeEscolhido = filmes[indexPath.item]
         
         _ = UIStoryboard(name: "Main", bundle: nil)
-        let controlador = storyboard?.instantiateViewController(withIdentifier: "filmeDetalhes") as! DetalhesFilmeViewController
+        let controlador = storyboard?.instantiateViewController(withIdentifier: "filmeDetalheMVVM") as! DetalheFilmeViewModelViewController //"filmeDetalhes") as! DetalhesFilmeViewController
         controlador.filmeSelecionado = filmeEscolhido
         self.navigationController?.pushViewController(controlador, animated: true)
         
