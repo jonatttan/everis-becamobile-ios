@@ -15,14 +15,15 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
     var bdFilmes:[[Any]] = [[]]
     
     override func setUpWithError() throws {
-        bdFilmes = [["foto.jpg", 098883], ["/capaFilme34.png", 098834],["/capaFilme4.jpeg", 098898],["/capaFilme67.jpg", 098803],["/capaFilme19.png", 098841],["/capaFilme4445.png", 098559]]
+        bdFilmes = [["foto.jpg", 098883, "Vidas Secas"], ["/capaFilme34.png", 098834, "Chamas da vingança"],["/capaFilme4.jpeg", 098898, "Livro de Eli"],["/capaFilme67.jpg", 098803, "Sem perdão"],["/capaFilme19.png", 098841, "Incondicional"],["/capaFilme4445.png", 098559, "Só de mãe"]]
         
         for filme in self.bdFilmes {
             guard let capaSelect = filme[0] as? String else { return }
             guard let codSelect = filme[1] as? Int else { return }
+            guard let tituloSelect = filme[2] as? String else { return }
         
             if (true){
-                self.listaDeFilmesTendencia.append(Filme(capa: capaSelect, codigo: codSelect))
+                self.listaDeFilmesTendencia.append(Filme(codigo: codSelect, titulo: tituloSelect, capa: capaSelect))
             }
         }
         
@@ -39,11 +40,12 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
         for filme in self.bdFilmes {
             guard let capaSelect = filme[0] as? String else { return }
             guard let codSelect = filme[1] as? Int else { return }
+            guard let tituloSelect = filme[2] as? String else { return }
         
             if ((capaSelect.count < 5) || ((!capaSelect.contains(".jpg")) && (!capaSelect.contains(".png")) && (!capaSelect.contains(".jpeg")))){
                 filmeSemCapa = filmeSemCapa + 1
             } else {
-                self.listaDeFilmesTendencia.append(Filme(capa: capaSelect, codigo: codSelect))
+                self.listaDeFilmesTendencia.append(Filme(codigo: codSelect, titulo: tituloSelect, capa: capaSelect))
             }
         }
         
