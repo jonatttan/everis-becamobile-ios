@@ -23,19 +23,36 @@ class DetalheFilmeViewModelViewController: UIViewController {
     @IBOutlet weak var labelPontuacao: UILabel!
     
     override func viewDidLoad() {
-        setupUI()
-        presenter()
+        self.findDetalhes()
     }
     
-    func setupUI() {
-        
+    func findDetalhes() {
         let tituloFilme = "Mulher-Maravilha"
         let capaFilme = "/egg7KFi18TSQc1s24RMmR9i2zO6.jpg"
         let sinopseFilme = "Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis, Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor."
         let avaliacaoFilme = 6.8
         filmeDetalhe = Detalhes(titulo: tituloFilme, capa: capaFilme, sinopse: sinopseFilme, avaliacao: avaliacaoFilme)
+        self.presenter()
         
+//        if let codigo = filmeSelecionado?.codigo {
+//            RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (detalhe) in
+//                //setupUI(detalhe)
+//                self.filmeDetalhe = detalhe
+//                self.presenter()
+//            }
+//        }
+
     }
+    
+    
+    func setupUI() {
+    
+    }
+    
+    
+    
+
+    
     
     func presenter() {
         guard let capaShow = filmeDetalhe?.capa else { return }

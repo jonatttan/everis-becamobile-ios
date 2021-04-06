@@ -7,17 +7,16 @@
 
 import UIKit
 
-class Filme: NSObject {
-    let codigo: Int
-    @objc let titulo: String
-    let capa: String
+struct Filmes: Codable {
+    let results: [Filme]
     
-    
-    //MARK: - Construtor
-    
-    init(codigo: Int, titulo: String, capa: String) {
-        self.codigo = codigo
-        self.titulo = titulo
-        self.capa = capa
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case results
+//    }
+}
+
+struct Filme: Codable {
+    let id: Int
+    let poster_path: String
+    let title: String?
 }

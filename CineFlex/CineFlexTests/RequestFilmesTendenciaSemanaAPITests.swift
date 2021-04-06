@@ -23,7 +23,7 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
             guard let tituloSelect = filme[2] as? String else { return }
         
             if (true){
-                self.listaDeFilmesTendencia.append(Filme(codigo: codSelect, titulo: tituloSelect, capa: capaSelect))
+                self.listaDeFilmesTendencia.append(Filme(id: codSelect, poster_path: capaSelect, title: tituloSelect))
             }
         }
         
@@ -45,7 +45,7 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
             if ((capaSelect.count < 5) || ((!capaSelect.contains(".jpg")) && (!capaSelect.contains(".png")) && (!capaSelect.contains(".jpeg")))){
                 filmeSemCapa = filmeSemCapa + 1
             } else {
-                self.listaDeFilmesTendencia.append(Filme(codigo: codSelect, titulo: tituloSelect, capa: capaSelect))
+                self.listaDeFilmesTendencia.append(Filme(id: codSelect, poster_path: capaSelect, title: tituloSelect))
             }
         }
         

@@ -31,7 +31,7 @@ class DetalhesFilmeViewController: UIViewController {
     
     func carregaTela() {
         
-        if let codigo = filmeSelecionado?.codigo {
+        if let codigo = filmeSelecionado?.id {
             RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (filmeDetalhes) in
                 
                 self.labelTitulo.text = filmeDetalhes.titulo

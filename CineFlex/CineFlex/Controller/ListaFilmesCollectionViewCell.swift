@@ -18,7 +18,7 @@ class ListaFilmesCollectionViewCell: UICollectionViewCell {
     
     func formatCelula(_ filme:Filme){
 
-        RequestImage().setImage(filme.capa) { (img) in
+        RequestImage().setImage(filme.poster_path) { (img) in
             self.imageCapa.image = img
         }
         self.layer.cornerRadius = 10

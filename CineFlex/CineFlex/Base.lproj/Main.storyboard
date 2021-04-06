@@ -49,18 +49,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4am-A5-0Tw">
                                         <rect key="frame" x="0.0" y="333.5" width="355" height="333.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-ex-wAI">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="125"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-ex-wAI">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="125" id="5tR-kC-DMo"/>
+                                                    <constraint firstAttribute="height" constant="80" id="5tR-kC-DMo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sinopse:" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1e-H6-mNe">
-                                                <rect key="frame" x="0.0" y="125" width="355" height="148.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sinopse:" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1e-H6-mNe">
+                                                <rect key="frame" x="0.0" y="80" width="355" height="193.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -245,10 +245,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Ryj-h5-bNs" secondAttribute="trailing" constant="10" id="Khh-nt-O7T"/>
-                                            <constraint firstItem="Ryj-h5-bNs" firstAttribute="leading" secondItem="Cyz-a5-Rjg" secondAttribute="leading" constant="10" id="Q0f-OU-1rz"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
