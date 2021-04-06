@@ -32,7 +32,7 @@ class RequestDetalhesFilmeAPI: NSObject {
     func obtemDetalhes(_ codigoFilme: Int, completion: @escaping(Detalhes) -> Void) {
         
         let urlCompleta = url+String(codigoFilme)+key
-        //var detalhesFilme = Detalhes(id: 003, overview: "", posterPath: "", title: "", voteAverage: 0.0)
+        var detalhesFilme = Detalhes(id: codigoFilme, overview: "Sem detalhes no momento, tente novamente mais tarde.", poster_path: "/nopic.jpg", title: "Obra de código \(codigoFilme)", vote_average: 0.0)
         
         Alamofire.request(urlCompleta, method: .get).responseJSON { (response) in
             switch response.result {
@@ -40,35 +40,12 @@ class RequestDetalhesFilmeAPI: NSObject {
             case .success:
                 guard let dados = response.data else { return }
                 do{
-                    let detalhesFilme = try JSONDecoder().decode(Detalhes.self, from: dados)
+                    detalhesFilme = try JSONDecoder().decode(Detalhes.self, from: dados)
                     completion(detalhesFilme)
-                    print("So sucesso!")
                 } catch {
                     print("Erro na conversao.")
+                    completion(detalhesFilme)
                 }
-                
-                
-//                if let dadosFilme = response.result.value as? Dictionary<String, Any> {
-//                    guard let titulo = dadosFilme["title"] as? String else {
-//                        detalhesFilme = self.def(codigoFilme)
-//                        completion(detalhesFilme)
-//                        return
-//                    }
-//                    guard let capa = dadosFilme["poster_path"] as? String else {
-//                        detalhesFilme = self.def(codigoFilme)
-//                        completion(detalhesFilme)
-//                        return
-//
-//                    }
-//                    guard let sinopse = dadosFilme["overview"] as? String else { return }
-//                    guard let avaliacao = dadosFilme["vote_average"] as? Double else {
-//                        detalhesFilme = self.def(codigoFilme)
-//                        completion(detalhesFilme)
-//                        return
-//                    }
-//                    detalhesFilme = Detalhes(titulo: titulo, capa: capa, sinopse: sinopse, avaliacao: avaliacao)
-//                    completion(detalhesFilme)
-//                }
                 
                 break
             case .failure:

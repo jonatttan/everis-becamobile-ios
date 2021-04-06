@@ -26,7 +26,5 @@ class RequestImage: NSObject {
                 completion(imageFormated)
             }
         }
-        
     }
-
 }

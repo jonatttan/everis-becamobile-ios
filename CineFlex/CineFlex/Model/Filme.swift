@@ -9,10 +9,6 @@ import UIKit
 
 struct Filmes: Codable {
     let results: [Filme]
-    
-//    enum CodingKeys: String, CodingKey {
-//        case results
-//    }
 }
 
 struct Filme: Codable {

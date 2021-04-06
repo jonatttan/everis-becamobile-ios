@@ -65,7 +65,7 @@ class DetalheFilmeViewModelViewController: UIViewController {
             self.imagePosterFilme.image = img
         }
         self.labelTitulo.text = tituloShow
-        self.labelSinopse.text = sinopseShow
-        self.labelPontuacao.text = String(pontuacaoShow)
+        self.labelSinopse.text = "Sinopse: \(sinopseShow)"
+        self.labelPontuacao.text = "Avaliação: \(String(pontuacaoShow))"
     }
 }
