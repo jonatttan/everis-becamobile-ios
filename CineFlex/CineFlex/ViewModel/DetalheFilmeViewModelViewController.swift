@@ -27,20 +27,21 @@ class DetalheFilmeViewModelViewController: UIViewController {
     }
     
     func findDetalhes() {
-        let tituloFilme = "Mulher-Maravilha"
-        let capaFilme = "/egg7KFi18TSQc1s24RMmR9i2zO6.jpg"
-        let sinopseFilme = "Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis, Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor."
-        let avaliacaoFilme = 6.8
-        filmeDetalhe = Detalhes(titulo: tituloFilme, capa: capaFilme, sinopse: sinopseFilme, avaliacao: avaliacaoFilme)
-        self.presenter()
+//        let codigo = Double.random(in: 0000...9999)
+//        let tituloFilme = "Mulher-Maravilha"
+//        let capaFilme = "/egg7KFi18TSQc1s24RMmR9i2zO6.jpg"
+//        let sinopseFilme = "Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis, Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor."
+//        let avaliacaoFilme = 6.8
+//        filmeDetalhe = Detalhes(id: codigo, overview: sinopseFilme, posterPath: capaFilme, title: tituloFilme, voteAverage: avaliacaoFilme)
+//        self.presenter()
         
-//        if let codigo = filmeSelecionado?.codigo {
-//            RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (detalhe) in
-//                //setupUI(detalhe)
-//                self.filmeDetalhe = detalhe
-//                self.presenter()
-//            }
-//        }
+        if let codigo = filmeSelecionado?.id {
+            RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (detalhe) in
+                //setupUI(detalhe)
+                self.filmeDetalhe = detalhe
+                self.presenter()
+            }
+        }
 
     }
     
@@ -55,10 +56,10 @@ class DetalheFilmeViewModelViewController: UIViewController {
     
     
     func presenter() {
-        guard let capaShow = filmeDetalhe?.capa else { return }
-        guard let tituloShow = filmeDetalhe?.titulo else { return }
-        guard let sinopseShow = filmeDetalhe?.sinopse else { return }
-        guard let pontuacaoShow = filmeDetalhe?.avaliacao else { return }
+        guard let capaShow = filmeDetalhe?.poster_path else { return }
+        guard let tituloShow = filmeDetalhe?.title else { return }
+        guard let sinopseShow = filmeDetalhe?.overview else { return }
+        guard let pontuacaoShow = filmeDetalhe?.vote_average else { return }
         
         RequestImage().setImage(capaShow) { (img) in
             self.imagePosterFilme.image = img

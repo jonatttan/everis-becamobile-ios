@@ -10,10 +10,10 @@ import UIKit
 
 struct Detalhes: Codable{
     let id: Int
-    let originalTitle, overview: String
-    let posterPath: String
+    let overview: String
+    let poster_path: String
     let title: String
-    let voteAverage: Double
+    let vote_average: Double
 }
 
 //

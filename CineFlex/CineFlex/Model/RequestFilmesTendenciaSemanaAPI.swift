@@ -30,7 +30,6 @@ class RequestFilmesTendenciaSemanaAPI: NSObject {
         
         
         Alamofire.request(url, method: .get).responseJSON { (response) in
-            print(response)
             
             guard let dados = response.data else { return }
             do {

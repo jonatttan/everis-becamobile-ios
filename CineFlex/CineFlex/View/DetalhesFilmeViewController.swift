@@ -34,11 +34,11 @@ class DetalhesFilmeViewController: UIViewController {
         if let codigo = filmeSelecionado?.id {
             RequestDetalhesFilmeAPI().obtemDetalhes(codigo) { (filmeDetalhes) in
                 
-                self.labelTitulo.text = filmeDetalhes.titulo
-                self.labelSinopse.text = "Sinopse: \(filmeDetalhes.sinopse)"
-                self.labelRating.text = "Avaliação: \(filmeDetalhes.avaliacao)"
+                self.labelTitulo.text = filmeDetalhes.title
+                self.labelSinopse.text = "Sinopse: \(filmeDetalhes.overview)"
+                self.labelRating.text = "Avaliação: \(filmeDetalhes.vote_average)"
                 
-                RequestImage().setImage(filmeDetalhes.capa) { (img) in
+                RequestImage().setImage(filmeDetalhes.poster_path) { (img) in
                     self.imageCapaFilme.image = img
                 }
                 
