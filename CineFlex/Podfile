@@ -7,6 +7,13 @@ target 'CineFlex' do
 
   # Pods for CineFlex
   pod 'Alamofire', '~> 4.7.0'
-
   pod 'AlamofireImage', '~> 3.4.0'
+  
+  target 'CineFlexUITests' do
+    # Pods for testing
+    pod 'Nimble'
+    pod 'Quick'
+    pod 'Nimble-Snapshots'
+  end
+  
 end
