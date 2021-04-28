@@ -12,14 +12,18 @@ class RequestDetalhesFilmeAPITests: XCTestCase {
     var bdDetalhes: [[Any]] = [[]]
     var detalhesFilme: [Detalhes]?
     var verificador = false
+    var requestDetAPI: RequestDetalhesFilmeAPI!
+    var result: Bool!
     
     
     override func setUpWithError() throws {
         
+        requestDetAPI = RequestDetalhesFilmeAPI()
         bdDetalhes = [["A volta dos que não foram", "/imagem.jpg", "Um caminho só de ida", 4.5], ["A trança da Mulher careca", "/imagemTranca.jpg", "Sem nós", 6.8], ["Fight 2 carecas, 1 pente", "/imagem.jpg", "Sem dentes e de ferro", 7.4], ["A vida de uma formiga", "/imagemFormigasLife.jpg", "Sem fim, incansáveis", 8.2]]
     }
     
     override func tearDownWithError() throws {
+        result = nil
     }
     
     func testeTodosOsFilmesDevemPossuirTitulo() {
@@ -60,6 +64,19 @@ class RequestDetalhesFilmeAPITests: XCTestCase {
         }
         
         XCTAssertTrue(verificador)
+    }
+    func testRetornoDeveSerIgualAoDefinidoIndicandoInformacaoDefault() {
+        let retorno = requestDetAPI.def(090)
+        XCTAssertEqual("Sem detalhes disponíveis no momento, tente novamente mais tarde.", retorno.sinopse, "valor retornado do objeto padrao e diferente do esperado")
+    }
+    func testretornodevePossuirCapa() { // descobrir como testar funcoes com completion
+//        requestDetAPI.obtemDetalhes(92346) { (detail) in
+//            self.result = false
+//            if detail.capa.count > 1 {
+//                self.result = true
+//            }
+//            XCTAssertTrue(self.result)
+//        }
     }
     
 }

@@ -31,9 +31,8 @@ class RequestFilmesTendenciaSemanaAPITests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
-    
     func testeNaoDeveEncontrarCapaInvalidaEmListaDeFilmes() {
         var filmeSemCapa = 0
         listaDeFilmesTendencia = []

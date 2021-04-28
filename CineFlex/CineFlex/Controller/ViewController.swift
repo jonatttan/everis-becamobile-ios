@@ -55,7 +55,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
-    @IBAction func btnNextPage(_ sender: UIButton) {
+    @IBAction func btnNextPage(_ sender: Any) {
         self.pag = pag + 1
         labelStatusPagina.text = "Página \(self.pag)"
         loadPage(self.pag)
