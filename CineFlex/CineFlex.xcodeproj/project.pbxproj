@@ -151,9 +151,7 @@
 				89BF23FB2613B3AD00D48DFC /* Componentes */,
 				8902BC5B260E5FDA00643AC1 /* AppDelegate.swift */,
 				8902BC5D260E5FDA00643AC1 /* SceneDelegate.swift */,
-				8902BC61260E5FDA00643AC1 /* Main.storyboard */,
 				8902BC67260E5FDD00643AC1 /* Assets.xcassets */,
-				8902BC69260E5FDD00643AC1 /* LaunchScreen.storyboard */,
 				8902BC6C260E5FDD00643AC1 /* Info.plist */,
 				8902BC64260E5FDA00643AC1 /* CineFlex.xcdatamodeld */,
 			);
@@ -195,8 +193,8 @@
 		8902BC95260E606000643AC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8902BC5F260E5FDA00643AC1 /* ViewController.swift */,
-				8957C678261260B800FF0F7E /* DetalhesFilmeViewController.swift */,
+				8902BC69260E5FDD00643AC1 /* LaunchScreen.storyboard */,
+				8902BC61260E5FDA00643AC1 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +202,8 @@
 		8902BC96260E606900643AC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8957C678261260B800FF0F7E /* DetalhesFilmeViewController.swift */,
+				8902BC5F260E5FDA00643AC1 /* ViewController.swift */,
 				8902BCB02610247E00643AC1 /* ListaFilmesCollectionViewCell.swift */,
 			);
 			path = Controller;
